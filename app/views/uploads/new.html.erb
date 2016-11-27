@@ -1,2 +1,24 @@
-<h1>Uploads#new</h1>
-<p>Find me in app/views/uploads/new.html.erb</p>
+
+<% if !@upload.errors.empty? %>
+<div class="alert alert-error">
+    <ul>
+      <% @upload.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="well">
+  <%= form_for @upload, html: { multipart: true } do |f| %>
+
+    <%= f.label :filename %>
+    <%= f.text_field :filename %><br>
+    <div>
+    	 <%= f.file_field :attachment %>
+    </div><br>
+   
+   
+    <%= f.submit "Upload", class: "btn btn-primary" %>
+  <% end %>
+</div>
