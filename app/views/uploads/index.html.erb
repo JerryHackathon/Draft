@@ -28,3 +28,15 @@
 	</tbody>
 </table>
 
+<div>
+	<% our_file = Upload.first %>
+	<% if our_file %>
+		<h2>You have <%= Upload.count %> uploads</h2>
+		<% content = our_file.attachment.read.split("\n") %>
+		<% content.each do |cont| %>
+			<%= cont %><br>
+		<% end %>
+	<% else %>
+		<h2>You Have no files to display</h2>	
+	<% end %>
+</div>
