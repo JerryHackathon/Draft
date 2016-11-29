@@ -1,8 +1,5 @@
 module UploadsHelper
-	def say_hi
-		render plain: ("Hello")
-	end	
-
+	
 	def group_them (content, number)
 		h, count = [], 1
 		content.sample(content.length).each_slice(number) do |group_members|
@@ -12,6 +9,8 @@ module UploadsHelper
 		end	
 		return h
 	end	
+
+	
 end
 
 =begin
