@@ -2,22 +2,22 @@ require 'test_helper'
 
 class UploadsControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
-    get uploads_index_url
+    get :index
     assert_response :success
   end
 
   test "should get new" do
-    get uploads_new_url
+    get :new
     assert_response :success
   end
 
   test "should get create" do
-    get uploads_create_url
+    get :create
     assert_response :success
   end
 
   test "should get destroy" do
-    get uploads_destroy_url
+    get :destroy
     assert_response :success
   end
 
