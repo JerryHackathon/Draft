@@ -1,0 +1,20 @@
+$(document).ready(function(){
+	var content = $("#groupings")
+	content.hide()
+
+
+	Array.prototype.sample= function(num=1, cut){
+    var A= cut? this:this.slice(0);
+    A.sort(function(){
+        return .5-Math.random();
+    });
+    return A.splice(0, num);
+}
+	
+
+
+	$(".group_them").click(function(){
+		var conts =  content.text
+		$(".show").html(content.text().split("\n").sample(3).join("<br>"))
+	})	
+})
