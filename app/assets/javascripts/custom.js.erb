@@ -9,12 +9,31 @@ $(document).ready(function(){
         return .5-Math.random();
     });
     return A.splice(0, num);
-}
+	}
 	
 
+	function group_people (stuff, number) {
+	 h = []	
+	 stuff = stuff.text().split("\n")
+	 stuff = stuff.sample(stuff.length)
+	 if ($(".range").val() >= 1){
+		while (stuff.length > 0)
+		 	h.push( "<h1>"
+		 				+"Group " 
+		 				+"</h1>"  
+		 				+"<br>"
+		 				+ "<h3>" 
+		 				+stuff.splice(0, number) 
+		 				+ "</h3>")	
+		return h.join("<br>")
+		} else {
+			h.push("<h2>" + "Please enter a value in the text field" + "</h2>")
+			return h.join("<br>")
+		}
+	}
 
 	$(".group_them").click(function(){
-		var conts =  content.text
-		$(".show").html(content.text().split("\n").sample(3).join("<br>"))
+		$(".show").html(group_people(content, $(".range").val()))
+		
 	})	
 })
