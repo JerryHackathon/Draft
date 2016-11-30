@@ -3,6 +3,10 @@ $(document).ready(function(){
 	content.hide()
 
 
+	<%def add(a, b)
+		a + b
+	end%>
+
 	Array.prototype.sample= function(num=1, cut){
     var A= cut? this:this.slice(0);
     A.sort(function(){
@@ -12,28 +16,33 @@ $(document).ready(function(){
 	}
 	
 
+	
 	function group_people (stuff, number) {
 	 h = []	
 	 stuff = stuff.text().split("\n")
-	 stuff = stuff.sample(stuff.length)
+	 final = stuff.sample(stuff.length)
 	 if ($(".range").val() >= 1){
-		while (stuff.length > 0)
+		for(var count = 1; count <= stuff.length/number; count++) {
 		 	h.push( "<h1>"
 		 				+"Group " 
+		 				+ count
 		 				+"</h1>"  
 		 				+"<br>"
 		 				+ "<h3>" 
-		 				+stuff.splice(0, number) 
+		 				+final.splice(0, number) 
 		 				+ "</h3>")	
+		}
 		return h.join("<br>")
+
 		} else {
 			h.push("<h2>" + "Please enter a value in the text field" + "</h2>")
 			return h.join("<br>")
+
 		}
 	}
 
 	$(".group_them").click(function(){
-		$(".show").html(group_people(content, $(".range").val()))
-		
+		$(".show").html(group_people(content, $(".range").val()))	
+		//$(".show").html("<h3>"+"<%= add(10, 8) %>" + "</h3>")	
 	})	
 })
