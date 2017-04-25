@@ -8,9 +8,7 @@ module UploadsHelper
 			count += 1
 		end	
 		return h
-	end	
-
-	
+	end		
 end
 
 =begin

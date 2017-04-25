@@ -68,16 +68,12 @@ $(document).ready(function(){
 		$("#extract").html(group_people_pull(content, $(".range").val()))
 
 	})	
-
-
-	//Get a reference to the link on the page
+	// Get a reference to the link on the page
     // with an id of "exportxt"
     var a = document.getElementById("exportxt");
-
-    //Set code to run when the link is clicked
+    // Set code to run when the link is clicked
     // by assigning a function to "onclick"
     a.onclick = function() {
-
     // Your code here...
 
 
@@ -91,7 +87,7 @@ $(document).ready(function(){
     }
     var fileName =  'groups_of_'+ $('.range').val() + '.txt'; // You can use the .txt extension if you want
     downloadInnerHtml(fileName, 'extract','text/plain');
-                //If you don't want the link to actually 
+                // If you don't want the link to actually 
                 // redirect the browser to another page, then
                 // return false at the end of this block.
                 // Note that this also prevents event bubbling,
@@ -99,4 +95,10 @@ $(document).ready(function(){
                 // always be the case.
                 return false;
     }
+
+    $(".range").keyup(function(event){
+	    if(event.keyCode == 13){
+	        $(".group_them").click();
+	    }
+	});
 })
