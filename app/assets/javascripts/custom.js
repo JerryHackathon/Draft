@@ -26,15 +26,15 @@ $(document).ready(function(){
 		 				+"Group " 
 		 				+ count
 		 				+"</h1>"  
-		 				+"<br>"
+		 	
 		 				+ "<h3>" 
-		 				+final.splice(0, number).join(", ") 
+		 				+final.splice(0, number).join("<p/>") 
 		 				+ "</h3>")	
 		}
 		return h.join("<br>")
 
 		} else {
-			h.push("<h2>" + "Please enter a value in the text field" + "</h2>")
+			h.push("<h4>" + "Please enter the number of people you want per group :-)" + "</h4>")
 			return h.join("<br>")
 
 		}
