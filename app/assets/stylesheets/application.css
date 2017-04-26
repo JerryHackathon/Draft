@@ -13,3 +13,22 @@
  *= require_tree .
  *= require_self
  */
+h1{
+	color: #337ab7;
+	font-family: Segoe UI;
+}
+
+h3{
+	font-family: Segoe UI;
+}
+
+.buttons{
+	margin-right: 40px;
+	float: left;
+}
+
+h4{
+	color: #d9534f;
+	font-family: Segoe UI;
+}
+
