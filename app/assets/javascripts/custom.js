@@ -12,24 +12,23 @@ $(document).ready(function(){
     });
     return A.splice(0, num);
 	}
-	
 
-	
+
+
 	function group_people_show (stuff, number) {
-	 h = []	
+	 h = []
 	 stuff = stuff.text().split("\n")
 	 final = stuff.sample(stuff.length)
 	 if ($(".range").val() >= 1){
 	 	$("#exportxt").show()
-		for(var count = 1; count <= stuff.length/number; count++) {
+		for(var count = 1; count <= (stuff.length/number) - 1; count++) {
 		 	h.push( "<h1>"
-		 				+"Group " 
+		 				+"Group "
 		 				+ count
-		 				+"</h1>"  
-		 	
-		 				+ "<h3>" 
-		 				+final.splice(0, number).join("<p/>") 
-		 				+ "</h3>")	
+		 				+"</h1>"
+		 				+ "<h3>"
+		 				+final.splice(0, number).join("<p/>")
+		 				+ "</h3>")
 		}
 		return h.join("<br>")
 
@@ -42,16 +41,16 @@ $(document).ready(function(){
 
 
 	function group_people_pull (stuff, number) {
-	 h = []	
+	 h = []
 	 stuff = stuff.text().split("\n")
 	 final = stuff.sample(stuff.length)
 	 if ($(".range").val() >= 1){
 	 	$("#exportxt").show()
 		for(var count = 1; count <= stuff.length/number; count++) {
-		 	h.push( "Group " 
-		 				+ count  
+		 	h.push( "Group "
+		 				+ count
 		 				+"\n"
-		 				+final.splice(0, number).join(", ") )	
+		 				+final.splice(0, number).join("\n") + "\n" )
 		}
 		return h.join("\n")
 
@@ -67,7 +66,7 @@ $(document).ready(function(){
 		$("#show").html(group_people_show(content, $(".range").val()))
 		$("#extract").html(group_people_pull(content, $(".range").val()))
 
-	})	
+	})
 	// Get a reference to the link on the page
     // with an id of "exportxt"
     var a = document.getElementById("exportxt");
@@ -83,15 +82,15 @@ $(document).ready(function(){
         mimeType = mimeType || 'text/plain';
         link.setAttribute('download', filename);
         link.setAttribute('href', 'data:' + mimeType  +  ';charset=utf-8,' + encodeURIComponent(elHtml));
-        link.click(); 
+        link.click();
     }
     var fileName =  'groups_of_'+ $('.range').val() + '.txt'; // You can use the .txt extension if you want
     downloadInnerHtml(fileName, 'extract','text/plain');
-                // If you don't want the link to actually 
+                // If you don't want the link to actually
                 // redirect the browser to another page, then
                 // return false at the end of this block.
                 // Note that this also prevents event bubbling,
-                // which is probably what we want here, but won't 
+                // which is probably what we want here, but won't
                 // always be the case.
                 return false;
     }
